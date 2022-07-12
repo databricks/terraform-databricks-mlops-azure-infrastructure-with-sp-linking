@@ -35,8 +35,9 @@ variable "azure_tenant_id" {
 }
 
 resource "databricks_service_principal" "sp" {
-  application_id = var.azure_client_id
-  display_name   = var.display_name
+  application_id       = var.azure_client_id
+  display_name         = var.display_name
+  allow_cluster_create = true
 }
 
 data "databricks_group" "sp_group" {
